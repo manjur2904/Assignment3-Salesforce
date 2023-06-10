@@ -1,0 +1,41 @@
+<template>
+    <lightning-card title="BoM/Disti Input Form" icon-name="standard:record_create">
+        <lightning-layout class="inputLayout">
+            <lightning-layout-item size="6">
+                <lightning-combobox 
+                    label="Record Type" 
+                    value={recordType}
+                    class="slds-p-top_medium"
+                    required="true"
+                    options={recordTypeOptions}
+                    onchange={handleRecordTypeChange}
+                    placeholder="Select an Object"
+                ></lightning-combobox>
+            </lightning-layout-item>
+            <lightning-layout-item size="6">
+                <lightning-input 
+                    label="Part Number"
+                    value={partNumber}
+                    required="true"
+                    onchange={handlePartNumberChange}
+                ></lightning-input>
+            </lightning-layout-item>
+            <lightning-layout-item size="6">
+                <lightning-input
+                    label="Quantity"
+                    value={quantity}
+                    required="true"
+                    type="number"
+                    onchange={handleQuantityChange}
+                ></lightning-input>
+            </lightning-layout-item>
+            <div class="slds-p-top_medium inputLayout">
+                <lightning-button 
+                    variant="brand" 
+                    label="Save"
+                    onclick={handleSave}>
+                </lightning-button>
+            </div>
+        </lightning-layout>
+    </lightning-card>
+</template>
