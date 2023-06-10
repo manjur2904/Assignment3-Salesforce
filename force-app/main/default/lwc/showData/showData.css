@@ -1,0 +1,7 @@
+.my-radio-group {
+    --slds-c-button-line-height: 2.875rem;
+}
+:host {
+    --slds-c-radio-mark-color-foreground: #000000;
+    --slds-c-radio-color-background-checked: orange;
+}

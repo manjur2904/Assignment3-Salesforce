@@ -1,5 +1,8 @@
-import { LightningElement, track} from 'lwc';
+import { LightningElement, track, wire} from 'lwc';
 import { ShowToastEvent } from 'lightning/platformShowToastEvent'
+
+// import { CurrentPageReference } from 'lightning/navigation';
+// import { fireEvent } from 'c/pubsub';
 
 import { createRecord } from 'lightning/uiRecordApi';
 import BOM_DISTI_OBJECT from '@salesforce/schema/BoMDisti__c';
@@ -9,6 +12,9 @@ import QUANTITY_OF_DISTI_FIELD from '@salesforce/schema/BoMDisti__c.Quantity_of_
 
 
 export default class UserInputComp extends LightningElement {
+
+    // @wire(CurrentPageReference) pageRef;
+
     @track recordType = "";
     @track partNumber = "";
     @track quantity = "";
@@ -67,5 +73,6 @@ export default class UserInputComp extends LightningElement {
             })
             this.dispatchEvent(event);
         })
+        fireEvent(this.pageRef, "eventdetails");
     }
 }

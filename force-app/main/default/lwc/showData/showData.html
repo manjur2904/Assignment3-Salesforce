@@ -1,5 +1,33 @@
 <template>
     <lightning-card title="Show BoM/Disti Table" icon-name="standard:record">
-        
+        <lightning-radio-group class="slds-m-around_medium my-radio-group"
+            label="Select List Type: "
+            options={options}
+            aria-orientation="horizontal"
+            value={value}
+            onchange={handleRadioChange}
+        ></lightning-radio-group>
+
+        <template if:true={combinedList}>
+            <lightning-datatable
+                key-field="Part Number"
+                data={combinedTableData}
+                columns={combinedTableColumns}
+            ></lightning-datatable>
+        </template>
+        <template if:true={bomList}>
+            <lightning-datatable
+                key-field="Part Number"
+                data={bomTableData}
+                columns={bomTableColumns}
+            ></lightning-datatable>
+        </template>
+        <template if:true={distiList}>
+            <lightning-datatable
+                key-field="Part Number"
+                data={distiTableData}
+                columns={distiTableColumns}
+            ></lightning-datatable>
+        </template>
     </lightning-card>
 </template>
