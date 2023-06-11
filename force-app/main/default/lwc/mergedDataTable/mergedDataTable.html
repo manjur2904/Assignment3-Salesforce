@@ -1,0 +1,17 @@
+<template>
+    <lightning-card title="Resultant Data Table" icon-name="standard:outcome">
+        <lightning-button
+            label={label}
+            variant="brand" 
+            onclick={handleShow}
+        ></lightning-button>
+        <template if:true={showData}>
+            <lightning-datatable
+                key-field="Id"
+                data={mergedTableData}
+                columns={mergedTableColumns}
+            ></lightning-datatable>
+        </template>
+    </lightning-card>
+
+</template>

@@ -73,6 +73,6 @@ export default class UserInputComp extends LightningElement {
             })
             this.dispatchEvent(event);
         })
-        fireEvent(this.pageRef, "eventdetails");
+        // fireEvent(this.pageRef, "eventdetails");
     }
 }
