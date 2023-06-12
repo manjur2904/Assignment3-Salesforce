@@ -1,5 +1,5 @@
 public with sharing class BoMDistiController {
-    @AuraEnabled(cacheable=true)
+    @AuraEnabled
     public static List<BoMDisti__c> getBoMDistiCombinedList(){
         try {
             return [
@@ -11,7 +11,7 @@ public with sharing class BoMDistiController {
             throw new AuraHandledException(e.getMessage());
         }
     }
-    @AuraEnabled(cacheable=true)
+    @AuraEnabled
     public static List<BoMDisti__c> getBoMList(){
         try {
             return [
@@ -24,7 +24,7 @@ public with sharing class BoMDistiController {
             throw new AuraHandledException(e.getMessage());
         }
     }
-    @AuraEnabled(cacheable=true)
+    @AuraEnabled
     public static List<BoMDisti__c> getDistiList(){
         try {
             return [

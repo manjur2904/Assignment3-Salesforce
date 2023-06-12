@@ -1,8 +1,6 @@
 import { LightningElement, track, wire} from 'lwc';
 import { ShowToastEvent } from 'lightning/platformShowToastEvent'
 
-// import { CurrentPageReference } from 'lightning/navigation';
-// import { fireEvent } from 'c/pubsub';
 
 import { createRecord } from 'lightning/uiRecordApi';
 import BOM_DISTI_OBJECT from '@salesforce/schema/BoMDisti__c';
@@ -10,15 +8,11 @@ import PART_NUMBER_FIELD from '@salesforce/schema/BoMDisti__c.Part_Number__c';
 import QUANTITY_OF_BOM_FIELD from '@salesforce/schema/BoMDisti__c.Quantity_of_BoM__c';
 import QUANTITY_OF_DISTI_FIELD from '@salesforce/schema/BoMDisti__c.Quantity_of_Disti__c';
 
-
 export default class UserInputComp extends LightningElement {
-
-    // @wire(CurrentPageReference) pageRef;
 
     @track recordType = "";
     @track partNumber = "";
     @track quantity = "";
-
 
     get recordTypeOptions(){
         return [
@@ -64,6 +58,10 @@ export default class UserInputComp extends LightningElement {
             })
             this.dispatchEvent(event);
             this.clearFields();
+            const uploadEvent = new CustomEvent('childnotification', {
+                bubbles: true
+            });
+            this.dispatchEvent(uploadEvent);
         })
         .catch(error =>{
             const event = new ShowToastEvent({
@@ -73,6 +71,5 @@ export default class UserInputComp extends LightningElement {
             })
             this.dispatchEvent(event);
         })
-        // fireEvent(this.pageRef, "eventdetails");
     }
 }

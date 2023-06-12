@@ -3,19 +3,12 @@ import getBoMDistiCombinedList from '@salesforce/apex/BoMDistiController.getBoMD
 import getBoMList from '@salesforce/apex/BoMDistiController.getBoMList';
 import getDistiList from '@salesforce/apex/BoMDistiController.getDistiList';
 
-
-// import { registerListener, unregisterAllListeners } from 'c/pubsub';
-// import { CurrentPageReference } from 'lightning/navigation';
 export default class ShowData extends LightningElement {
 
-    // @wire(CurrentPageReference) pageRef;
-
-    // connectedCallback(){
-    //     registerListener("eventdetails", this);
-    // }
-    // disconnectedCallback(){
-    //     unregisterAllListeners(this);
-    // }
+    @api update(){
+        // console.log('update modified');
+        this.connectedCallback();
+    }
 
     options = [
         {label: 'BoM', value: 'BoM'},
@@ -58,18 +51,35 @@ export default class ShowData extends LightningElement {
     @track bomTableData = [];
     @track distiTableData = [];
 
-    @wire(getBoMDistiCombinedList) 
-    BoMDistiCombinedList(result){
-        this.combinedTableData = result.data;
-    }
-    
-    @wire(getBoMList) 
-    BoMList(result){
-        this.bomTableData = result.data;
-    }
+    connectedCallback(){
+        // console.log('connectedCallback modified');
+        getBoMDistiCombinedList()
+        .then(result =>{
+            this.combinedTableData = result;
+            // console.log('getBoMDistiCombinedList() is executed');
+        })
+        .catch(error =>{
+            this.combinedTableData = undefined;
+        })
 
-    @wire(getDistiList) 
-    DistiList(result){
-        this.distiTableData = result.data;
+        getBoMList()
+        .then(result =>{
+            this.bomTableData = result;
+            // console.log('getBoMList() is executed');
+        })
+        .catch(error =>{
+            this.bomTableData = undefined;
+        })
+
+        getDistiList()
+        .then(result =>{
+            this.distiTableData = result;
+            // console.log('getDistiList() is executed');
+        })
+        .catch(error =>{
+            this.distiTableData = undefined;
+        })
+
+        this.selectAnother();
     }
 }
