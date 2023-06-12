@@ -1,10 +1,12 @@
 <template>
     <lightning-card title="Resultant Data Table" icon-name="standard:outcome">
-        <lightning-button
-            label={label}
-            variant="brand" 
-            onclick={handleShow}
-        ></lightning-button>
+        <div class="slds-p-top_medium showButton">
+            <lightning-button
+                label={label}
+                variant="brand" 
+                onclick={handleShow}
+            ></lightning-button>
+        </div>
         <template if:true={showData}>
             <lightning-datatable
                 key-field="Id"
@@ -12,6 +14,7 @@
                 columns={mergedTableColumns}
             ></lightning-datatable>
         </template>
+        <lightning-spinner if:true={isLoading}></lightning-spinner>
     </lightning-card>
 
 </template>
