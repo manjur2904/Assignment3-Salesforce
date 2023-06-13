@@ -1,12 +1,14 @@
 <template>
     <lightning-card>
         <h1>Assignment3 Lightning Web Component Page</h1>
-        
-        <c-user-input-comp onchildnotification={handleRefresh}
-        ></c-user-input-comp>
 
+        <!-- This child component is created for taking input data from the UI -->
+        <c-user-input-comp onchildnotification={handleRefresh} ></c-user-input-comp>
+
+        <!-- This child component shows the updated input data -->
         <c-show-data></c-show-data>
 
+        <!-- This child component shows the merged output data in a table format -->
         <c-merged-data-table></c-merged-data-table>
         
     </lightning-card>

@@ -1,12 +1,14 @@
 <template>
     <lightning-card title="Resultant Data Table" icon-name="standard:outcome">
         <div class="slds-p-top_medium showButton">
+            <!-- added a button, on clicking the button the merge result will execute -->
             <lightning-button
                 label={label}
                 variant="brand" 
                 onclick={handleShow}
             ></lightning-button>
         </div>
+        <!-- after executing the result, shoData will be control whether we shold show the data or hide it -->
         <template if:true={showData}>
             <lightning-datatable
                 key-field="Id"
@@ -14,6 +16,7 @@
                 columns={mergedTableColumns}
             ></lightning-datatable>
         </template>
+        <!-- The spinner will rotate untill the merge calculation is done -->
         <lightning-spinner if:true={isLoading}></lightning-spinner>
     </lightning-card>
 

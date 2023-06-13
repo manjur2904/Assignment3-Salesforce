@@ -1,5 +1,6 @@
 <template>
     <lightning-card title="Show BoM/Disti Table" icon-name="standard:record">
+        <!-- For filtering the custom object's data we are using a radio-button -->
         <lightning-radio-group class="slds-m-around_medium my-radio-group"
             label="Select List Type: "
             options={options}
@@ -7,21 +8,23 @@
             value={value}
             onchange={handleRadioChange}
         ></lightning-radio-group>
-
+        <!-- When user click to see the BoM and Disti combined object's data, only combined object's data table will show  -->
         <template if:true={combinedList}>
             <lightning-datatable
-                key-field="Part Number"
-                data={combinedTableData}
-                columns={combinedTableColumns}
+            key-field="Part Number"
+            data={combinedTableData}
+            columns={combinedTableColumns}
             ></lightning-datatable>
         </template>
+        <!-- When user click to see only the BoM object's data, only BoM object's data table will show  -->
         <template if:true={bomList}>
             <lightning-datatable
-                key-field="Part Number"
-                data={bomTableData}
-                columns={bomTableColumns}
+            key-field="Part Number"
+            data={bomTableData}
+            columns={bomTableColumns}
             ></lightning-datatable>
         </template>
+        <!-- When user click to see only the Disti object's data, only Disti object's data table will show  -->
         <template if:true={distiList}>
             <lightning-datatable
                 key-field="Part Number"

@@ -1,7 +1,9 @@
 <template>
+    <!-- Created a lightning card to specify our this component working field -->
     <lightning-card title="BoM/Disti Input Form" icon-name="standard:record_create">
         <lightning-layout class="inputLayout">
             <lightning-layout-item size="6">
+                <!-- we are using combobox/dropdown menu to select which object you are trying to add -->
                 <lightning-combobox 
                     label="Record Type" 
                     value={recordType}
@@ -13,6 +15,7 @@
                 ></lightning-combobox>
             </lightning-layout-item>
             <lightning-layout-item size="6">
+                <!-- taking input the part_number of the object -->
                 <lightning-input 
                     label="Part Number"
                     value={partNumber}
@@ -21,6 +24,7 @@
                 ></lightning-input>
             </lightning-layout-item>
             <lightning-layout-item size="6">
+                <!-- taking input the quantity of the object  -->
                 <lightning-input
                     label="Quantity"
                     value={quantity}
@@ -30,6 +34,7 @@
                 ></lightning-input>
             </lightning-layout-item>
             <div class="slds-p-top_medium inputLayout">
+                <!-- added a button to save the data of the specific BoM/Disti object -->
                 <lightning-button 
                     variant="brand" 
                     label="Save"
