@@ -1,7 +1,7 @@
 <template>
     <lightning-card title="Show BoM/Disti Table" icon-name="standard:record">
-        <!-- For filtering the custom object's data we are using a radio-button -->
-        <lightning-radio-group class="slds-m-around_medium my-radio-group"
+            <!-- For filtering the custom object's data we are using a radio-button -->
+        <lightning-radio-group class="slds-m-around_medium my-radio-group showData"
             label="Select List Type: "
             options={options}
             aria-orientation="horizontal"
@@ -13,6 +13,7 @@
             <lightning-datatable
             key-field="Part Number"
             data={combinedTableData}
+            class="datatable-border"
             columns={combinedTableColumns}
             ></lightning-datatable>
         </template>

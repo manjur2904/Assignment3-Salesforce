@@ -2,7 +2,7 @@
     <!-- Created a lightning card to specify our this component working field -->
     <lightning-card title="BoM/Disti Input Form" icon-name="standard:record_create">
         <lightning-layout class="inputLayout">
-            <lightning-layout-item size="6">
+            <lightning-layout-item size="4">
                 <!-- we are using combobox/dropdown menu to select which object you are trying to add -->
                 <lightning-combobox 
                     label="Record Type" 
@@ -14,21 +14,23 @@
                     placeholder="Select an Object"
                 ></lightning-combobox>
             </lightning-layout-item>
-            <lightning-layout-item size="6">
+            <lightning-layout-item size="4">
                 <!-- taking input the part_number of the object -->
                 <lightning-input 
                     label="Part Number"
                     value={partNumber}
                     required="true"
+                    placeholder="Enter part number here"
                     onchange={handlePartNumberChange}
                 ></lightning-input>
             </lightning-layout-item>
-            <lightning-layout-item size="6">
+            <lightning-layout-item size="4">
                 <!-- taking input the quantity of the object  -->
                 <lightning-input
                     label="Quantity"
                     value={quantity}
                     required="true"
+                    placeholder="Enter quantity here"
                     type="number"
                     onchange={handleQuantityChange}
                 ></lightning-input>
